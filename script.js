@@ -5,6 +5,8 @@ import * as THREE from 'three';
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+const stardanceLogo = document.getElementById("stardance-logo");
+
 const rocketStartX = -5;
 
 let launchStarted = false;
@@ -206,6 +208,14 @@ function moveCamera() {
     setTimeout(() => {
       launchSpeed = 0;
       launching = true;
+
+      setTimeout(() => {
+        stardanceLogo.classList.add("show");
+      }, 1200);
+
+      setTimeout(() => {
+        stardanceLogo.classList.remove("show");
+      }, 3200);
     }, 500);
   }
 }
@@ -240,4 +250,10 @@ checks.forEach((check, index) => {
   check.addEventListener("change", () => {
     localStorage.setItem(key, check.checked);
   });
+});
+
+window.history.scrollRestoration = "manual";
+
+window.addEventListener("load", () => {
+  window.scrollTo(0, 0);
 });

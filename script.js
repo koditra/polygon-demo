@@ -32,7 +32,7 @@ camera.position.setZ(17);
 const loadingManager = new THREE.LoadingManager();
 const textureLoader = new THREE.TextureLoader(loadingManager);
 
-const boxTexture = textureLoader.load("Joseph.png");
+const boxTexture = textureLoader.load("joseph.png");
 const donutTexture = textureLoader.load("nebula.jpg");
 const rocketBodyTexture = textureLoader.load("rocketbody.jpeg");
 const metalTexture = textureLoader.load("metal.avif");

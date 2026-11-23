@@ -1,4 +1,3 @@
-
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.180/build/three.module.js';
 
 const scene = new THREE.Scene();
@@ -189,15 +188,11 @@ document.querySelectorAll('.check').forEach((check, index) => {
 const surpriseScreen = document.querySelector('#surprise-screen');
 
 function checkBottom() {
-    const atBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 2;
+    const scrollBottom = window.scrollY + window.innerHeight;
+    const pageBottom = document.documentElement.scrollHeight;
+    const atBottom = scrollBottom >= pageBottom - 2;
 
-    if (atBottom) {
-        surpriseScreen.classList.add('visible');
-    } else {
-        surpriseScreen.classList.remove('visible');
-    }
+    surpriseScreen.classList.toggle('visible', atBottom);
 }
 
 window.addEventListener('scroll', checkBottom);
